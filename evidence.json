@@ -1,17 +1,21 @@
 {
-  "bounty": "gofrantic #49",
-  "claim_type": "demo_repo",
-  "public_url": "https://github.com/halc8312/runx-quickstart-demo",
-  "runx_link_found": true,
-  "runx_links": ["https://github.com/runxhq/runx", "https://runx.ai", "https://www.npmjs.com/package/@runxhq/cli"],
-  "summary": "Public demo repository containing a complete, real walkthrough of the runx local quickstart: npm install of @runxhq/cli 0.9.1, running examples/hello-world with both input forms, RUNX_RECEIPT_DIR behavior across skill/history/verify, receipt inspection via runx history --detail --json, and cryptographic verification via runx verify --allow-local-development-signatures. The actual sealed runx.receipt.v1 receipt is committed to the repo as sealed-receipt.json.",
-  "audience": "developers evaluating governed runtimes for agent skills; newcomers who want to see exactly what the sealed-receipt flow produces before installing",
-  "venue_rule": "A personal public GitHub repository is the operator's own demo artifact, explicitly listed by the bounty as an acceptable action type ('a relevant repo/demo/README/example that mentions runx'). No community rules are implicated.",
-  "executed": {
-    "cli_version": "runx-cli 0.9.1",
-    "platform": "Ubuntu 24.04, Node v20.18.1",
-    "receipt_id": "sha256:e6b05ab4eebc97ad5ba36abe64ccca8c2141e3170f7099847fd2a89ba9435b47",
-    "verify_verdict": "ok (--allow-local-development-signatures)",
-    "date_utc": "2026-09-19"
-  }
+ "bounty": "gofrantic #49",
+ "claim_type": "demo_repo",
+ "public_url": "https://github.com/halc8312/runx-quickstart-demo",
+ "runx_link_found": true,
+ "summary": "Public demo repository containing a complete, real walkthrough of the runx local quickstart with the sealed receipt committed as evidence.",
+ "audience": "developers evaluating governed runtimes for agent skills; newcomers wanting to see exactly what the sealed-receipt flow produces before installing",
+ "observations": [
+  "Ran the documented quickstart on Ubuntu 24.04 + Node v20.18.1 with @runxhq/cli 0.9.1: `runx skill ./examples/hello-world -i message='hello, runx' --json` returned runx.skill_run.v1 with status sealed and receipt_id sha256:e6b05ab4eebc97ad5ba36abe64ccca8c2141e3170f7099847fd2a89ba9435b47 in under a second.",
+  "RUNX_RECEIPT_DIR is honored consistently by runx skill, runx history, and runx verify: receipts and index.json land in the chosen directory and are discoverable from it.",
+  "runx history <receipt-id> --detail --json returns a runx.receipt_inspection.v1 projection showing authority, decisions, acts, and seal summary; unsigned local receipts honestly report verification.status unverified.",
+  "runx verify refuses unsigned receipts by default and requires RUNX_RECEIPT_VERIFY_KID + RUNX_RECEIPT_VERIFY_ED25519_PUBLIC_KEY_BASE64 or an explicit --allow-local-development-signatures flag; with the flag the demo receipt verifies ok.",
+  "The repo links runx.ai, github.com/runxhq/runx, and the npm package, and commits the actual sealed runx.receipt.v1 receipt as sealed-receipt.json so readers can inspect a real artifact."
+ ],
+ "venue_rule": "A personal public GitHub repository is the operator's own demo artifact, explicitly listed by the bounty as an acceptable action type (a relevant repo/demo/README/example that mentions runx).",
+ "executed": {
+  "cli_version": "runx-cli 0.9.1",
+  "platform": "Ubuntu 24.04, Node v20.18.1",
+  "date_utc": "2026-09-19"
+ }
 }
