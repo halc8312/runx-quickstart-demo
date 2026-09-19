@@ -1,0 +1,5 @@
+receipt dir: /tmp/rxd
+signature mode: local-development
+note: local-development signatures were accepted only because --allow-local-development-signatures was set; set RUNX_RECEIPT_VERIFY_KID and RUNX_RECEIPT_VERIFY_ED25519_PUBLIC_KEY_BASE64 to verify production signatures
+tree sha256:e6b05ab4eebc97ad5ba36abe64ccca8c2141e3170f7099847fd2a89ba9435b47 (1 receipt): ok
+verification: ok
